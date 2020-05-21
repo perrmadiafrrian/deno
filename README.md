@@ -18,4 +18,8 @@ docker build -t yourusername/deno:latest .
 docker run -it --rm yourusername/deno:latest run https://deno.land/std/examples/welcome.ts
 ```
 
-this should showing a **Welcome to Deno 🦕** output
+this should showing a **Welcome to Deno 🦕** output.
+
+## Persisting cache
+
+`TODO`
