@@ -23,3 +23,9 @@ this should showing a **Welcome to Deno 🦕** output.
 ## Persisting cache
 
 `TODO`
+
+## Loch Ness
+
+Sugestion will always be welcomed, help also welcomed. because im new in this kind of things.
+
+[MIT License](./LICENSE) © 2020, Permadi Afrian
