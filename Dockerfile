@@ -1,16 +1,23 @@
 FROM debian:10-slim
 
-WORKDIR /install
+RUN useradd -ms /bin/bash deno
+
+ENV DENO_INSTALL="/usr/local"
+ENV PATH="$DENO_INSTALL/bin:$PATH"
+ENV DENO_DIR="/home/deno/.cache"
 
 RUN apt update && apt install curl unzip -y
 
 RUN curl -fsSL https://deno.land/x/install/install.sh | sh
 
-ENV DENO_INSTALL="/root/.deno"
-ENV PATH="$DENO_INSTALL/bin:$PATH"
+RUN mkdir ${DENO_DIR}
 
-VOLUME [ "/root/.deno" ]
+RUN chown -hR deno:deno ${DENO_DIR}
 
-WORKDIR /app
+USER deno
+
+VOLUME [ ${DENO_DIR} ]
+
+WORKDIR /home/deno/app
 
 ENTRYPOINT ["deno"]
